@@ -1,0 +1,30 @@
+body{
+    background-color: lightblue;
+    color:maroon;
+    font-family: arial;
+    margin: 0px;
+}
+
+main{
+
+}
+
+header{
+    background-color:darkslateblue;
+    color: aliceblue;
+    font-family: times;
+    margin: 0px;
+    padding: 20px;
+    font-size: 20pt;
+}
+
+footer{
+    background-color:darkgray;
+    color: black;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
