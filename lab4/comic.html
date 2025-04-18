@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Комикс</title>
+        <style>
+            .open {
+                position: relative;
+            }
+
+            .sherlock {
+                width: 50%;
+                display: block;
+            }
+
+            .first, .second, .third, .fourth {
+                opacity: 0;
+                transition: opacity 1s ease;
+                pointer-events: none;
+                position: absolute;
+                background-color: rgb(170,180,200);
+                border: 1px solid black;
+                border-radius: 50%;
+                z-index: 2; 
+                box-shadow: 2px 10px 20px rgb(120,120,120);
+            }
+
+            .first {
+                width: 75px;
+                height: 35px;
+                top: 310px;
+                right: 1130px;
+                transition-delay: 1s;
+            }
+
+            .second {
+                width: 150px;
+                height: 70px;
+                top: 260px;
+                right: 1020px;
+                transition-delay: 2s;
+            }
+
+            .third {
+                width: 225px;
+                height: 105px;
+                top: 190px;
+                right: 890px;
+                transition-delay: 3s;
+            }
+
+            .fourth {
+                width: 300px;
+                height: 140px;
+                top: 100px;
+                right: 730px;
+                text-align: center;
+                line-height: 100px;
+                box-sizing: border-box;
+                padding-top: 20px;
+                transition-delay: 4s;
+                font-size: 20px;
+                font: bold;
+                font-family:'Times New Roman', Times, serif;
+                color: whitesmoke;
+            }
+
+            .open:hover .first,
+            .open:hover .second,
+            .open:hover .third,
+            .open:hover .fourth {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 4
+            <hr>
+        </header>    
+
+        <main>
+            <div class="open">
+                <img class="sherlock" src="sherlock.jpg" width="50%"> 
+                <div class="first"></div>
+                <div class="second"></div>
+                <div class="third"></div>
+                <div class="fourth">Ты понижаешь IQ всей улицы.</div>
+            </div>
+
+            
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
