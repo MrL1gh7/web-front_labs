@@ -7,7 +7,14 @@
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
-        <title>Окачутин Вячеслав Владимирович. Лабораторная 5</title>
+        <title>Окачутин Вячеслав Владимирович. Фильтры</title>
+        <script>
+            function BlurChange(){
+                let value = document.getElementById('BlurValue').value + 'px';
+                document.getElementById('BlurOutput').innerText = value;
+                document.getElementById('BlurImage').style.filter = 'blur(' + value + ')';
+            }
+        </script>
     </head>
 
     <body>
@@ -17,10 +24,12 @@
         </header>    
 
         <main>
-            <div><a href="arithmetic.html" target="_blank">Арифметика</a></div>
-            <div><a href="cart.html" target="_blank">Корзина</a></div>
-            <div><a href="circles.html" target="_blank">Круги</a></div>
-            <div><a href="filters.html" target="_blank">Фильтры</a></div>
+            <div>
+                Фильтр blur:
+                <input type="range" min="0" max="20" value="0" onchange="BlurChange()" id="BlurValue">
+                <span id="BlurOutput"></span>
+            </div>
+            <div><img src="tok.png" height="500px" id="BlurImage"></div>
         </main>
 
         <footer>
