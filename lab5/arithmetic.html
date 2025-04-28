@@ -39,6 +39,46 @@
             alert("Разность " + a + " и " + b + " равна "+result)
             }
 
+            function ShowDiv(){
+            let inputA=document.getElementById('numA');
+            let inputB=document.getElementById('numB');
+
+            let a=parseInt(inputA.value);
+            let b=parseInt(inputB.value);
+            if(b==0) {
+                alert("На ноль делить нельзя!")
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'black';
+                inputB.style.backgroundColor = 'red';
+                return;
+            }
+
+            if(isNaN(a)) {
+                alert("Введите числовое значение в первое поле!")
+                inputA.focus();
+                inputA.select();
+                inputA.style.color = 'black';
+                inputA.style.backgroundColor = 'red';
+                return;
+            }
+
+            if(isNaN(b)) {
+                alert("Введите числовое значение во второе поле!")
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'black';
+                inputB.style.backgroundColor = 'red';
+                return;
+            }
+            inputA.style.color = '';
+            inputA.style.backgroundColor = '';
+            inputB.style.color = '';
+            inputB.style.backgroundColor = '';
+            let result=a/b;
+            alert("Отношение " + a + " и " + b + " равно "+result)
+            }
+
             function ShowAuthor(){
                 let author = "Автор страницы: \nОкачутин Вячеслав Владимирович"
                 alert(author)
@@ -87,6 +127,7 @@
             <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
             <div class="message" onclick="ShowSub()" style="top: -23px; position: relative;">Разность чисел</div>
             <div class="message" onclick="ShowMult()" style="top: -23px; position: relative;">Умножение чисел</div>
+            <div class="message" onclick="ShowDiv()">Найти отношение чисел</div>
             <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
         </main>
 
