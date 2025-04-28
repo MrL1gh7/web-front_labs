@@ -128,6 +128,17 @@
                 let deviz = "Приветсвую вас на моей странице. Let me cook."
                 alert(deviz)
             }
+
+            function ChangeOutPut(ButtonNum, BackColor, TxtColor, Bor, BorRad, BorWid, BorColor){
+                let output = document.getElementById('output')
+                output.innerHTML = 'Нажата кнопка ' + ButtonNum;
+                output.style.backgroundColor = BackColor;
+                output.style.color = TxtColor;
+                output.style.border = Bor;
+                output.style.borderRadius = BorRad;
+                output.style.borderWidth = BorWid;
+                output.style.borderColor = BorColor;
+            }
         </script>
         <style>
             .message{
@@ -152,6 +163,14 @@
             footer{
                 cursor: pointer;
             }
+
+            #output{
+                margin-top: 10px;
+                border: 1px solid;
+                width: 290px;
+                height: 40px;
+                text-align: center;
+            }
         </style>
     </head>
 
@@ -170,6 +189,14 @@
             <div class="message" onclick="ShowDiv()">Найти отношение чисел</div>
             <div class="message" onclick="ShowPow()" style="top: -23px; position: relative;">Возвести в степень</div>
             <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
+
+            <div>
+                <input type="button" value="Кнопка 1" onclick="ChangeOutPut(1, 'red', 'yellow', 'dotted', '8%', '5px', 'purple')">
+                <input type="button" value="Кнопка 2" onclick="ChangeOutPut(2, 'black', 'lime', 'double', '0%', '2px', 'white')">
+                <input type="button" value="Кнопка 3" onclick="ChangeOutPut(3, 'green', 'red', 'dashed', '20%', '10px', 'lightgrey')">
+                <input type="button" value="Кнопка 4" onclick="ChangeOutPut(4, 'purple', 'lightblue', 'solid', '80%', '3px', 'black')">
+            </div>
+            <div id="output"> </div>
         </main>
 
         <footer ondblclick="ShowDeviz()">
