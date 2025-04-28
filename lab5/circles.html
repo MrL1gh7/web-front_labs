@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Круги</title>
+        <script>
+            const colors = ['red', 'green', 'yellow', 'blue', 'orange', 'purple', 'whitesmoke', 'darkblue', 'black', 'lime'];
+            
+            function GetRandomPercent(max) {
+            return Math.floor(Math.random() * max);
+            }
+
+            function Circles(){
+                const main = document.querySelector('main');
+                document.querySelectorAll('.circle').forEach(c => c.remove());
+                for(let i = 0; i < 10; i++){
+                    const circle = document.createElement('div');
+                    circle.className = 'circle';
+                    circle.textContent = i+1;
+                    circle.style.backgroundColor = colors[i];
+                    circle.style.left = GetRandomPercent(90) + 'vw';
+                    circle.style.top = GetRandomPercent(75) + 'vh';
+                    circle.onclick = function (){
+                        this.classList.add('hidden');
+                    }
+                    main.appendChild(circle);
+                }
+            }
+
+            function RestoreCircles(){
+                document.querySelectorAll('.circle').forEach(c => c.classList.remove('hidden'));
+            }
+            document.addEventListener('DOMContentLoaded', Circles);
+        </script>
+
+        <style>
+            .circle{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: darkcyan;
+                cursor: pointer;
+                transition: all 1s ease;
+            }
+
+            .hidden{
+                opacity: 0;
+                width: 0;
+                height: 0;
+                font-size: 0;
+            }
+
+            #restoreBtn {
+                margin: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                z-index: 1000;
+                position: relative;
+            }
+
+            main {
+                position: relative;
+                height: 80vh;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header>    
+
+        <main>
+                <button id="restoreBtn" onclick="RestoreCircles()">Показать все круги</button>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
