@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Событие</title>
+        <script>
+            function showCoords() {
+                let x = this.event.x;
+                let y = this.event.y;
+                let div = document.getElementById('block');
+                let html = '<b>x</b> = ' + x + 'px<br><b>y</b> = ' + y + 'px';
+                if (this.event.ctrlKey) {
+                    div.style.color = 'purple';
+                    html += '<br><b>Нажата клавиша Ctrl</b>';
+                } else {
+                    div.style.color = 'black';
+                }
+
+                if (this.event.altKey) {
+                    div.style.backgroundColor = 'gold';
+                    div.style.border = '2px solid white';
+                    html += '<br><b>Нажата клавиша Alt</b>';
+                } else {
+                    div.style.backgroundColor = 'peachpuff';
+                    div.style.border = '2px solid black';
+                }
+
+                if (this.event.shiftKey) {
+                    div.style.border = '3px dashed blue';
+                    html += '<br><b>Нажата клавиша Shift</b>';
+                }
+                div.innerHTML = html;
+            }
+        </script>
+        <style>
+            #block {
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                background-color: peachpuff;
+                cursor: crosshair;
+                white-space: pre-line;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header>    
+
+        <main>
+            <div id="block" onmousemove="showCoords()"></div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
