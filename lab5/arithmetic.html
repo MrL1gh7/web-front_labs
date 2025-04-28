@@ -15,6 +15,16 @@
             let result=a+b;
             alert("Сумма " + a + " и " + b + " равна "+result)
             }
+
+            function ShowAuthor(){
+                let author = "Автор страницы: \nОкачутин Вячеслав Владимирович"
+                alert(author)
+            }
+
+            function ShowDeviz(){
+                let deviz = "Приветсвую вас на моей странице. Let me cook."
+                alert(deviz)
+            }
         </script>
         <style>
             .message{
@@ -31,21 +41,28 @@
                 cursor: pointer;
             }
 
+            header{
+                cursor: pointer;
+            }
+
+            footer{
+                cursor: pointer;
+            }
         </style>
     </head>
 
     <body>
-        <header>
+        <header onclick="ShowAuthor()">
             НГТУ, ФБ, Лабораторная работа 5
             <hr>
         </header>    
 
         <main>
             <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
-            <div class="message">Узнать, кто автор страницы</div>
+            <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
         </main>
 
-        <footer>
+        <footer ondblclick="ShowDeviz()">
             <hr>
             &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
         </footer>
