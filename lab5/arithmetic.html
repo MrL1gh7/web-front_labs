@@ -19,6 +19,26 @@
             alert("Сумма " + a + " и " + b + " равна "+result)
             }
 
+            function ShowMult(){
+            let inputA=document.getElementById('numA');
+            let inputB=document.getElementById('numB');
+
+            let a=parseInt(inputA.value);
+            let b=parseInt(inputB.value);
+            let result=a*b;
+            alert("Произведение " + a + " и " + b + " равно "+result)
+            }
+
+            function ShowSub(){
+            let inputA=document.getElementById('numA');
+            let inputB=document.getElementById('numB');
+
+            let a=parseInt(inputA.value);
+            let b=parseInt(inputB.value);
+            let result=a-b;
+            alert("Разность " + a + " и " + b + " равна "+result)
+            }
+
             function ShowAuthor(){
                 let author = "Автор страницы: \nОкачутин Вячеслав Владимирович"
                 alert(author)
@@ -42,6 +62,7 @@
                 box-sizing: border-box;
                 font-size: 20px;
                 cursor: pointer;
+                margin-top: 20px;
             }
 
             header{
@@ -62,8 +83,10 @@
 
         <main>
             <label>Первое число: <input type="number" value="5154" id="numA"></label><br>
-            <label>Второе число: <input type="number" value="7891" id="numB"></label><br>
+            <label>Второе число: <input type="number" value="7891" id="numB" style="margin-top: 10px;"></label><br>
             <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
+            <div class="message" onclick="ShowSub()" style="top: -23px; position: relative;">Разность чисел</div>
+            <div class="message" onclick="ShowMult()" style="top: -23px; position: relative;">Умножение чисел</div>
             <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
         </main>
 
