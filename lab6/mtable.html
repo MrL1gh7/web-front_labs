@@ -7,17 +7,29 @@
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
-        <title>Окачутин Вячеслав Владимирович. Лабораторная 6</title>
+        <title>Окачутин Вячеслав Владимирович. Таблица умножения</title>
+        <script>
+            function ShowMultipleTable(){
+                let tbl = document.getElementById('mtable');
+                tbl.innerHTML = '<h1>Таблица умножения</h1>';
+                for(i=1;i<=10;i++){
+                    let s = `<div>${i} * 7 = ${i*7}</div>`;
+                    tbl.innerHTML += s;
+                }
+                
+            }
+           
+        </script>
     </head>
 
-    <body>
+    <body onload=" ShowMultipleTable()">
         <header>
             НГТУ, ФБ, Лабораторная работа 6
             <hr>
         </header>    
 
         <main>
-            <li><a href="mtable.html" target="_blank"> Таблица умножения</a></li>
+            <div id="mtable" style="color: black; border: 3px solid; width: 360px; text-align: center; font-size: 20px;"></div>
         </main>
 
         <footer>
