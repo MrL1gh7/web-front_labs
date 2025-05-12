@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Список книг</title>
+        <script src = "books.js"></script>
+        <script>
+            function ShowBooks() {
+            const BookList = document.getElementById('BookList');
+                for (let i = 0; i < books.length; i++) {
+                    let book = books[i];
+
+                    let bestsellerBadge = book.bestseller == 1 
+                    ? `<sup class="bestseller">BestSeller</sup>` 
+                    : '';
+
+                    let opacityStyle = book.has == 0 ? 'opacity: 0.4;' : '';
+
+                    BookList.innerHTML += `
+                        <div class="book" style="${opacityStyle}">
+                        <b>${book.author}.</b> 
+                        <i>${book.name}${bestsellerBadge}</i> 
+                        — ${book.publicationYear}, 
+                        цена: <b>${book.price}₽</b>
+                        </div>
+                        `;
+                }
+            }
+        </script>
+
+        <style>
+            .bestseller {
+                position: absolute;
+                right: 1250px;
+                background-color: red;
+                color: yellow;
+                padding: 2px 5px;
+                font-size: 10px;
+                font-weight: bold;
+                border-radius: 4px;
+                border: 1px solid yellow;
+                transform: translate(50%, -50%);
+            }
+        
+            .book {
+                margin-bottom: 10px;
+                padding: 5px;
+                border-bottom: 1px dashed #ccc;
+                position: relative;
+            }
+        </style>
+    </head>
+
+    <body onload="ShowBooks()">
+        <header>    
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header>    
+
+        <main>
+           <h1>Список книг</h1>
+           <div id="BookList">
+
+           </div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
