@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Диаграмма</title>
+        <script>
+            function ShowDiagram() {
+                let data = [397, 206, 540, 432, 235, 349, 542, 161, 321, 497]
+                let colors = ['red', '#556832', '#FEFE22', '#F754E1', '#721422', '#946B54', '#9ACD32', '#1E213D', '#6495ED', '#F34723']
+                let bars = document.getElementsByClassName('bar');
+                const DiagHeight = document.getElementById('diag').clientHeight;
+                const MaxData = Math.max(...data)
+                const k  = (DiagHeight / MaxData) * 0.9;
+                for(let i=0; i < data.length; i++){
+                    bars[i].style.height = k * data[i] + 'px';
+                    bars[i].style.background = colors[i];
+                    bars[i].innerHTML = data[i];
+                }
+            }
+        </script>
+        <style>
+            #diag {
+                width: 600px;
+                height: 600px;
+                background-color: whitesmoke;
+                border: 1px solid black;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding: 5px;
+            }
+
+            .bar{
+                width: 57px;
+                height: 200px;
+                margin-left: 1px;
+                background-color: blue;
+                border: 1px solid black;
+                text-align: center;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body onload="ShowDiagram()">
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header>    
+
+        <main>
+            <div id="diag">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
