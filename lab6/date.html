@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Дата-время</title>
+
+        <script>
+            function ShowDate(){
+                let out = document.getElementById('current-date');
+                let today = new Date();
+                const ln = ['ru-RU','de-DE', 'zh', 'en-US', 'vi-VN']
+
+                for(let i =0; i < ln.length;i++){
+
+                    pr = today.toLocaleString(ln[i])
+
+                    out.innerHTML += `
+                    <div class = "st"> 
+                    Дата и вермя для ${ln[i]} : ${pr};
+                    </div>    
+                    `
+                }
+                
+            }
+        </script>
+
+        <style>
+            .st{
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+
+    <body onload="ShowDate()">
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header>    
+
+        <main>
+            <div id="current-date"></div>
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
