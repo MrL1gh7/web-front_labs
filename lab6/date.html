@@ -12,6 +12,7 @@
         <script>
             function ShowDate(){
                 let out = document.getElementById('current-date');
+                out.innerHTML = '';
                 let today = new Date();
                 const ln = ['ru-RU','de-DE', 'zh', 'en-US', 'vi-VN']
 
@@ -25,13 +26,51 @@
                     </div>    
                     `
                 }
-                
+            
+            let timerNum;
+            let timerTimeNum;
+
+            }
+            function changeColors(){
+                const header = document.getElementsByTagName('header')[0];
+                const rgb = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
+                header.style.color = rgb;
+            }
+
+            function startChangeColors() {
+                changeColors();
+                timerNum = setInterval(changeColors, 2000);
+                document.getElementById('startbtn').disabled = true;
+                document.getElementById('stopbtn').disabled = false;
+            }
+
+            function stopChangeColors() {
+                clearInterval(timerNum);
+                document.getElementById('startbtn').disabled = false;
+                document.getElementById('stopbtn').disabled = true;
+            }
+
+            function startTime() {
+                ShowDate();
+                timertimeNum = setInterval(ShowDate, 1000);
+                document.getElementById('starttime').disabled = true;
+                document.getElementById('stoptime').disabled = false;
+            }
+
+            function stopTime() {
+                clearInterval(timertimeNum);
+                document.getElementById('starttime').disabled = false;
+                document.getElementById('stoptime').disabled = true;
             }
         </script>
 
         <style>
             .st{
                 margin-top: 5px;
+            }
+
+             header {
+            transition: color 0.8s ease;
             }
         </style>
     </head>
@@ -44,6 +83,14 @@
 
         <main>
             <div id="current-date"></div>
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <button onclick="startTime()" id="starttime">Обновлять время</button>
+                <button onclick="stopTime()" id="stoptime" disabled>Остановить обновление времени</button>
+            </div>
+            <div>
+                <button onclick="startChangeColors()" id="startbtn">Старт</button>
+                <button onclick="stopChangeColors()" id="stopbtn" disabled>Стоп</button>
+            </div>
         </main>
 
         <footer>
