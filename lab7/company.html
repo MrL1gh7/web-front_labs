@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+        <title>Окачутин Вячеслав Владимирович. Котировки акций компании Детский мир</title>
+        <script src="company.js"></script>
+        <script>
+            function ShowStock(){
+                const table = document.createElement('table');
+                table.border = "1";
+                table.style.borderCollapse = "collapse";
+
+                const top = table.insertRow();
+                top.insertCell().innerText = "Дата";
+                top.insertCell().innerText = "Цена акций";
+                top.insertCell().innerText = "Разница";
+
+                for(let i = 0; i < price.length; i++){
+                    const row = table.insertRow();
+                    row.insertCell().innerText = data[i];
+                    row.insertCell().innerText = price[i];
+
+                    let diff = row.insertCell();
+                    if(i==0){
+                        diff.innerHTML = "&mdash;";
+                    }
+                    else{
+                        let d = (price[i]-price[i-1]).toFixed(2);
+                        diff.innerText = d;
+                        if(d>0){
+                            diff.style.color = "green";
+                        }
+                        else if(d<0){
+                            diff.style.color = "red";
+                        }
+                        else{
+                            diff.style.color = "black";
+                        }
+                    }
+                }
+                document.getElementById('table-stock').appendChild(table);
+                const avg = (price.reduce((a, b) => a+b)/price.length).toFixed(2);
+                const max = Math.max(...price).toFixed(2);
+                const min = Math.min(...price).toFixed(2);
+
+                const info = document.createElement('div');
+                info.innerHTML = `<p>Средняя цена: <strong>${avg}</strong></p>
+                <p>Максимальная цена: <strong>${max}</strong></p>
+                <p>Минимальная цена: <strong>${min}</strong></p>
+                `
+
+                document.querySelector('main').appendChild(info);
+
+                document.getElementById('btn').style.display = 'none';
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+            <hr>
+        </header>    
+
+        <main>
+            <button onclick="ShowStock()" id="btn">Загрузить курс акций Детского мира</button>
+            <table id="table-stock">
+        </main>
+
+        <footer>
+            <hr>
+            &copy; Окачутин Вячеслав, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
