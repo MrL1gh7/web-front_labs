@@ -7,7 +7,20 @@
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
         <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
-        <title>Окачутин Вячеслав Владимирович. Лабораторная 7</title>
+        <title>Окачутин Вячеслав Владимирович. Добавление блоков</title>
+        <script>
+            function AddNewBlock(){
+                let NewBlock = document.createElement('div');
+                NewBlock.style.backgroundColor = 'purple';
+                NewBlock.style.height = '40px';
+                NewBlock.style.border = '3px solid black';
+                NewBlock.style.borderRadius = '5%';
+                NewBlock.style.marginTop = '10px';
+                NewBlock.style.boxSizing = 'border-box';
+
+                document.querySelector('main').appendChild(NewBlock);
+            }
+        </script>
     </head>
 
     <body>
@@ -17,7 +30,7 @@
         </header>    
 
         <main>
-            <li><a href="bloks.html" target="_blank"> Добавление блоков</a></li>
+            <button onclick="AddNewBlock()">Добавить блок</button>
         </main>
 
         <footer>
