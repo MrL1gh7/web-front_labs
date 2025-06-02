@@ -42,6 +42,10 @@
                                 <span v-else>{{ flower }}</span> 
                                 <button @click="edit(id, flower)" class="btn btn-primary" v-if="flower !== null"><i class="bi bi-pen"></i></button>
                                 <div class="spinner-border" role="status" v-if="flower === null"></div>
+                                <button @click="removeFlower(id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </li>
+                            <li>
+                                <button @click="addFlower()" class="btn btn-success me-2">Добавить цветок</button>
                             </li>
                         </ul>
                     </div>
@@ -65,9 +69,11 @@
                         <td>
                             <button @click="edit(id, flower)" class="btn btn-primary" v-if="flower !== null"><i class="bi bi-pen"></i></button>
                             <div class="spinner-border" role="status" v-if="flower === null"></div>
+                            <button @click="removeFlower(id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                         </td>
                     </tr>
                 </table>
+                <button @click="addFlower()" class="btn btn-success me-2">Добавить цветок</button>
                 <hr>
                 
                 <h2>Калькулятор</h2>
@@ -130,6 +136,17 @@
                     },
                     sum(){
                         this.res = this.a + this.b;
+                    },
+                    addFlower(){
+                        let NewFlower = prompt('Введите название цветка:');
+                        if (NewFlower && NewFlower.trim() !== '') {
+                            this.flowers.push(NewFlower.trim())
+                        }
+                    }, 
+                    removeFlower(id){
+                        if(confirm('Удалить этот цветок?')){
+                            this.flowers.splice(id,1);
+                        }
                     },
                 }
             }).mount('#app');
