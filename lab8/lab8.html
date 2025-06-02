@@ -33,13 +33,34 @@
                 <hr>
 
                 <h2>Цветы</h2>
-                <ul>
-                    <li v-for="(flower, id) in flowers">
-                        {{ flower }} <button @click="edit(id, flower)">?</button>
-                    </li>
-                </ul>
+                        <ul>
+                            <li v-for="(flower, id) in flowers">
+                                {{ flower }} <button @click="edit(id, flower)">?</button>
+                            </li>
+                        </ul>
+                    
+                
                 <hr>
 
+                <h2>Цветы</h2>
+                <table class="table table-primary">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Редактировать</th>
+                        </tr>
+                    </thead>
+                    <tr v-for="(flower,id) in flowers">
+                        <td>
+                            {{ flower }}
+                        </td>
+                        <td>
+                            <button @click="edit(id, flower)">?</button>
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+                
                 <h2>Калькулятор</h2>
                 <div class="row g-5">
                     <div class="col-auto">
@@ -58,6 +79,7 @@
                         <span class="badge text-bg-primary fs-5">{{ res }}</span>
                     </div>
                 </div>
+
             </div>
         </main>
 
